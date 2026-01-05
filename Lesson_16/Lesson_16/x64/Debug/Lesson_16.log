@@ -1,0 +1,2 @@
+﻿Lesson_18.obj : error LNK2005: main already defined in Lesson_16.obj
+C:\Users\slowm\source\repos\Moirslow\Yaroslav-UE5-Hunchenko\Lesson_16\x64\Debug\Lesson_16.exe : fatal error LNK1169: one or more multiply defined symbols found
