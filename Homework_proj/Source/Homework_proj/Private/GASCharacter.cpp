@@ -3,6 +3,7 @@
 
 #include "GASCharacter.h"
 #include "AbilitySystemComponent.h"
+#include "GameplayAbilitySpec.h"
 
 // Sets default values
 AGASCharacter::AGASCharacter()
@@ -27,6 +28,11 @@ void AGASCharacter::BeginPlay()
 
 		AbilitySystemComponent->InitAbilityActorInfo(this, this);
 
+		if (HasAuthority() && DebugAbilityClass)
+		{
+			AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(DebugAbilityClass, 1, 0));
+		}
+
 		UE_LOG(LogTemp, Warning, TEXT("GASCharacter: ASC valid=%s | ActorInfo valid=%s"),
 			AbilitySystemComponent ? TEXT("true") : TEXT("false"),
 			AbilitySystemComponent->AbilityActorInfo.IsValid() ? TEXT("true") : TEXT("false"));
@@ -35,5 +41,9 @@ void AGASCharacter::BeginPlay()
 	
 }
 
-
+void AGASCharacter::ActivateDebugAbility()
+{
+	if (!AbilitySystemComponent || !DebugAbilityClass) return;
+	AbilitySystemComponent->TryActivateAbilityByClass(DebugAbilityClass);
+}
 

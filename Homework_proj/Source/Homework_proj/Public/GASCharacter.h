@@ -8,6 +8,7 @@
 #include "GASCharacter.generated.h"
 
 class UAbilitySystemComponent;
+class UGameplayAbility;
 
 UCLASS()
 class HOMEWORK_PROJ_API AGASCharacter : public ACharacter, public IAbilitySystemInterface
@@ -28,4 +29,9 @@ protected:
 	UPROPERTY (VisibleAnywhere, BlueprintReadOnly, Category = "GAS")
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
 
+	UPROPERTY(EditDefaultsOnly, Category = "GAS")
+	TSubclassOf<UGameplayAbility> DebugAbilityClass;
+
+	UFUNCTION(BlueprintCallable, Category = "GAS")
+	void ActivateDebugAbility();
 };
