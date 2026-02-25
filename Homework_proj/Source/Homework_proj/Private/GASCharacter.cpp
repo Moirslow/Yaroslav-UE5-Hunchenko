@@ -4,12 +4,14 @@
 #include "GASCharacter.h"
 #include "AbilitySystemComponent.h"
 #include "GameplayAbilitySpec.h"
+#include "GASAttributeSet.h"
 
 // Sets default values
 AGASCharacter::AGASCharacter()
 {
 
 AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
+AttributeSet = CreateDefaultSubobject<UGASAttributeSet>(TEXT("AttributeSet"));
 
 }
 

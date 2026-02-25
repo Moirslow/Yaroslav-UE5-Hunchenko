@@ -29,6 +29,9 @@ protected:
 	UPROPERTY (VisibleAnywhere, BlueprintReadOnly, Category = "GAS")
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
 
+	UPROPERTY()
+	TObjectPtr<class UGASAttributeSet> AttributeSet;
+
 	UPROPERTY(EditDefaultsOnly, Category = "GAS")
 	TSubclassOf<UGameplayAbility> DebugAbilityClass;
 
